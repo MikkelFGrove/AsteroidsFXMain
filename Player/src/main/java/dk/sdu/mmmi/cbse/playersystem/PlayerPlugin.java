@@ -11,6 +11,7 @@ public class PlayerPlugin implements IGamePluginService {
     @Override
     public void start(GameData gameData, World world) {
         player = createPlayer(gameData);
+        world.addEntity(player);
     }
 
     @Override
@@ -18,11 +19,16 @@ public class PlayerPlugin implements IGamePluginService {
         world.removeEntity(player);
     }
 
+    @Override
+    public void collision(GameData gameData, World world) {
+
+    }
+
     private Entity createPlayer(GameData gameData) {
-        Entity playerShip = new Entity();
+        Entity playerShip = new Player();
         playerShip.setPolygonCoordinates(-5,-5,10,0,-5,5);
-        playerShip.setX(0);
-        playerShip.setY(0);
+        playerShip.setX(gameData.getDisplayWidth()/2);
+        playerShip.setY(gameData.getDisplayHeight()/2);
         playerShip.setRadius(8);
         return playerShip;
     }

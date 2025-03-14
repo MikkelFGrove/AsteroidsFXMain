@@ -5,5 +5,6 @@ import dk.sdu.mmmi.cbse.common.data.World;
 
 public interface IGamePluginService {
     void start(GameData gameData, World world);
+    void stop(GameData gameData, World world);
     void collision(GameData gameData, World world);
 }
