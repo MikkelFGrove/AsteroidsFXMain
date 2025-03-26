@@ -30,7 +30,6 @@ public class PlayerControlSystem implements IEntityProcessingService {
             if (gameData.getKeys().isDown(GameKeys.UP)) {
                 double changeX = Math.cos(Math.toRadians(player.getRotation()));
                 double changeY = Math.sin(Math.toRadians(player.getRotation()));
-                System.out.println("PlayerControlSystem: Change X: " + changeX);
                 player.setX(player.getX() + changeX);
                 player.setY(player.getY() + changeY);
             }
@@ -42,14 +41,10 @@ public class PlayerControlSystem implements IEntityProcessingService {
             }
 
             if (player.getX() < 0) {
-                System.out.println("PlayerControlSystem down: ");
-
                 player.setX(1);
             }
 
             if (player.getX() > gameData.getDisplayWidth()) {
-                System.out.println("PlayerControlSystem:d werwer");
-
                 player.setX(gameData.getDisplayWidth()-1);
             }
 
@@ -60,8 +55,6 @@ public class PlayerControlSystem implements IEntityProcessingService {
             if (player.getY() > gameData.getDisplayHeight()) {
                 player.setY(gameData.getDisplayHeight()-1);
             }
-
-
         }
     }
 
